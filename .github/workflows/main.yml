@@ -30,10 +30,10 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo MY_URL${{ env.MY_URL }}-SECRETS.MYURL${{ secrets.MYURL }}-space test !
+        if:  ${{ secrets.MYURL == env.MY_URL}}
+        run: echo Both are same MY_URL${{ env.MY_URL }}-SECRETS.MYURL${{ secrets.MYURL }}-space test !        
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+      - name: Run a multi-line script       
+        if:  ${{ secrets.MYURL != env.MY_URL}}
+        run: echo Both are different MY_URL${{ env.MY_URL }}-SECRETS.MYURL${{ secrets.MYURL }}-space test !   
