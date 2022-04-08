@@ -3,7 +3,7 @@
 name: CI
 env:
  MY_URL:   http://test  
- SECRET_URL: ${{ secrets.MYURL }}
+ SECRET_URL: '${{ secrets.MYURL }}'
  
 # Controls when the workflow will run
 on:
