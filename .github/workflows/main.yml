@@ -31,7 +31,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run if they are same
-        if:  ${{ env.MY_URL  == env.SECRET_URL.trim() }}
+        if:  ${{ env.MY_URL  == env.SECRET_URL }}
         run: echo Both are same MY_URL${{ env.MY_URL }}-SECRETS.MYURL${{ secrets.MYURL }}!        
 
       # Runs a set of commands using the runners shell
