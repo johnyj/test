@@ -3,7 +3,7 @@
 name: CI
 env:
  MY_URL: http://test
- SECRET_URL: core.getInput( ${{ secrets.MYURL }}, { trimWhitespace:true })
+ SECRET_URL: ${{ secrets.MYURL }}.trim()
  
 # Controls when the workflow will run
 on:
