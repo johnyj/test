@@ -2,7 +2,7 @@
 
 name: CI
 env:
- MY_URL:   http://test  
+ MY_URL: http://test
  SECRET_URL: "${{ secrets.MYURL }}"
  
 # Controls when the workflow will run
@@ -30,11 +30,11 @@ jobs:
       - uses: actions/checkout@v3
 
       # Runs a single command using the runners shell
-      - name: Run a one-line script
+      - name: Run if they are same
         if:  ${{ env.MY_URL  == env.SECRET_URL }}
-        run: echo Both are same MY_URL${{ env.MY_URL }}-SECRETS.MYURL${{ secrets.MYURL }}-space test !        
+        run: echo Both are same MY_URL${{ env.MY_URL }}-SECRETS.MYURL${{ secrets.MYURL }}!        
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script       
+      - name: Run if they are different       
         if: ${{ env.MY_URL  != env.SECRET_URL }}
-        run: echo Both are different MY_URL${{ env.MY_URL }}-SECRETS.MYURL${{ secrets.MYURL }}-space test !   
+        run: echo Both are different MY_URL${{ env.MY_URL }}-SECRETS.MYURL${{ secrets.MYURL }}!   
